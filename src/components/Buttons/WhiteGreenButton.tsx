@@ -41,43 +41,45 @@ export const WhiteGreenButton = ({
         isShadow && styles.shadowBackground,
         stylePros,
       ]}>
-      <LinearGradient
-        // Basic button background
-        colors={['#00A676', '#00A676']}
-        start={{x: 0.5, y: 0.5}}
-        end={{x: 0.5, y: 1}}
-        style={[styles.button, stylePros]}>
-        <View style={StyleSheet.absoluteFill}>
-          <LinearGradient
-            // Light from above
-            colors={['#FFFFFF', '#00A67600']}
-            start={{x: 0.5, y: 0}}
-            end={{x: 0.5, y: 0.4}}
-            style={StyleSheet.absoluteFill}
-          />
-          <LinearGradient
-            // Light from the left side
-            colors={['#FFFFFF', '#00A67600']}
-            start={{x: 0, y: 0.5}}
-            end={{x: 0.1, y: 0.6}}
-            style={StyleSheet.absoluteFill}
-          />
-        </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPressIn={handlePressIn}
-          onPressOut={handlePressOut}>
-          {isPressed && (
-            <View style={(StyleSheet.absoluteFill, {borderRadius: 20})}>
-              <LinearGradient
-                colors={['#FFFFFF', '#00A67600']}
-                style={StyleSheet.absoluteFill}
-              />
-            </View>
-          )}
-          <Text style={styles.text}>{title}</Text>
-        </TouchableOpacity>
-      </LinearGradient>
+      <View style={[styles.buttonWrapper, stylePros]}>
+        <LinearGradient
+          // Basic button background
+          colors={['#00A676', '#00A676']}
+          start={{x: 0.5, y: 0.5}}
+          end={{x: 0.5, y: 1}}
+          style={[styles.button, stylePros]}>
+          <View style={StyleSheet.absoluteFill}>
+            <LinearGradient
+              // Light from above
+              colors={['#FFFFFF', '#00A67600']}
+              start={{x: 0.5, y: 0}}
+              end={{x: 0.5, y: 0.4}}
+              style={StyleSheet.absoluteFill}
+            />
+            <LinearGradient
+              // Light from the left side
+              colors={['#FFFFFF', '#00A67600']}
+              start={{x: 0, y: 0.5}}
+              end={{x: 0.1, y: 0.6}}
+              style={StyleSheet.absoluteFill}
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.button}
+            onPressIn={handlePressIn}
+            onPressOut={handlePressOut}>
+            {isPressed && (
+              <View style={(StyleSheet.absoluteFill, {borderRadius: 20})}>
+                <LinearGradient
+                  colors={['#FFFFFF', '#00A67600']}
+                  style={StyleSheet.absoluteFill}
+                />
+              </View>
+            )}
+            <Text style={styles.text}>{title}</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+      </View>
     </View>
   );
 };
@@ -87,6 +89,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  //for android
+  buttonWrapper: {
+    overflow: 'hidden',
   },
   buttonBase: {
     width: hScale(939),

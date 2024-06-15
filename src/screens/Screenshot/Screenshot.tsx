@@ -106,7 +106,6 @@ const styles = StyleSheet.create({
   outerContainer: {
     width: hScale(939),
     paddingBottom: vScale(100),
-
     shadowColor: '#FFFFFF',
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 1,
