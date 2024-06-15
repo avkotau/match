@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {RootStack} from './src';
+import {RootStack, WithSplashScreen} from './src';
 
 export const ThemeContext = React.createContext({
   theme: {
@@ -12,9 +12,11 @@ function App() {
   const theme = {headerColor: 'black'};
   return (
     <ThemeContext.Provider value={{theme}}>
-      <NavigationContainer>
-        <RootStack />
-      </NavigationContainer>
+      <WithSplashScreen>
+        <NavigationContainer>
+          <RootStack />
+        </NavigationContainer>
+      </WithSplashScreen>
     </ThemeContext.Provider>
   );
 }

@@ -13,9 +13,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4E676802C4A3430B0443C6EB /* libPods-MookLtd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D313F16029B6E310E551E9BC /* libPods-MookLtd.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9708E4092C175B5F009B583E /* a_syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9708E4082C175B5F009B583E /* a_syncopate-Regular.ttf */; };
-		9708E40A2C175B5F009B583E /* a_syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9708E4082C175B5F009B583E /* a_syncopate-Regular.ttf */; };
-		9708E4102C176D55009B583E /* Syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9708E40F2C176D55009B583E /* Syncopate-Regular.ttf */; };
 		9DD7C86101A6F2C152BEAE72 /* libPods-MookLtd-MookLtdTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5AA0D338CB5825E7F37917 /* libPods-MookLtd-MookLtdTests.a */; };
 		C8471027DABE7DDC1DA6ACCB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 96FE8896D03E9DD908B5DFE0 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
@@ -46,8 +43,6 @@
 		5807AE36B14D8B3A66EF794A /* Pods-MookLtd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MookLtd.release.xcconfig"; path = "Target Support Files/Pods-MookLtd/Pods-MookLtd.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MookLtd/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96FE8896D03E9DD908B5DFE0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = MookLtd/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		9708E4082C175B5F009B583E /* a_syncopate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "a_syncopate-Regular.ttf"; sourceTree = "<group>"; };
-		9708E40F2C176D55009B583E /* Syncopate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syncopate-Regular.ttf"; sourceTree = "<group>"; };
 		987904FD6A76AC62A2BCAB7B /* Pods-MookLtd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MookLtd.debug.xcconfig"; path = "Target Support Files/Pods-MookLtd/Pods-MookLtd.debug.xcconfig"; sourceTree = "<group>"; };
 		D313F16029B6E310E551E9BC /* libPods-MookLtd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MookLtd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -94,7 +89,6 @@
 		13B07FAE1A68108700A75B9A /* MookLtd */ = {
 			isa = PBXGroup;
 			children = (
-				971ED91A2C17540E00D4EF39 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -146,15 +140,6 @@
 				00E356EE1AD99517003FC87E /* MookLtdTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		971ED91A2C17540E00D4EF39 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				9708E40F2C176D55009B583E /* Syncopate-Regular.ttf */,
-				9708E4082C175B5F009B583E /* a_syncopate-Regular.ttf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -254,7 +239,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9708E40A2C175B5F009B583E /* a_syncopate-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9708E4092C175B5F009B583E /* a_syncopate-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				9708E4102C176D55009B583E /* Syncopate-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C8471027DABE7DDC1DA6ACCB /* PrivacyInfo.xcprivacy in Resources */,
 			);
