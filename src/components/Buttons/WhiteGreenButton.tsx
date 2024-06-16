@@ -1,84 +1,66 @@
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {hScale, vScale} from '../../baseSize.ts';
-import LinearGradient from 'react-native-linear-gradient';
-import {useState} from 'react';
 import {gStyle} from '../../styles';
+import {Shadow} from 'react-native-shadow-2';
 
 type Props = {
   title: string;
-  isShadow: boolean;
-  handlePress: () => void;
-  stylePros?: ViewStyle;
 };
 
-export const WhiteGreenButton = ({
-  title,
-  isShadow,
-  handlePress,
-  stylePros,
-}: Props) => {
-  const [isPressed, setIsPressed] = useState(false);
-
-  const handlePressIn = () => {
-    setIsPressed(true);
-  };
-
-  const handlePressOut = () => {
-    setIsPressed(false);
-    handlePress();
-  };
-
+export const WhiteGreenButton = ({title}: Props) => {
   return (
-    <View
-      style={[
-        styles.container,
-        isShadow && styles.shadowBackground,
-        stylePros,
-      ]}>
-      <View style={[styles.buttonWrapper, stylePros]}>
-        <LinearGradient
-          // Basic button background
-          colors={['#00A676', '#00A676']}
-          start={{x: 0.5, y: 0.5}}
-          end={{x: 0.5, y: 1}}
-          style={[styles.button, stylePros]}>
-          <View style={StyleSheet.absoluteFill}>
-            <LinearGradient
-              // Light from above
-              colors={['#FFFFFF', '#00A67600']}
-              start={{x: 0.5, y: 0}}
-              end={{x: 0.5, y: 0.4}}
-              style={StyleSheet.absoluteFill}
-            />
-            <LinearGradient
-              // Light from the left side
-              colors={['#FFFFFF', '#00A67600']}
-              start={{x: 0, y: 0.5}}
-              end={{x: 0.1, y: 0.6}}
-              style={StyleSheet.absoluteFill}
-            />
-          </View>
-          <TouchableOpacity
-            style={styles.button}
-            onPressIn={handlePressIn}
-            onPressOut={handlePressOut}>
-            {isPressed && (
-              <View style={(StyleSheet.absoluteFill, {borderRadius: 20})}>
-                <LinearGradient
-                  colors={['#FFFFFF', '#00A67600']}
-                  style={StyleSheet.absoluteFill}
-                />
+    <View style={styles.container}>
+      {Platform.OS === 'android' && (
+        <Shadow
+          distance={20}
+          startColor={'rgba(0,166,118,0.38)'}
+          endColor={'#00A67600'}
+          paintInside={false}
+          style={{
+            width: hScale(939),
+            height: vScale(184),
+            borderRadius: vScale(50),
+            position: 'absolute',
+            left: 0,
+            top: 0,
+          }}
+        />
+      )}
+      <View style={styles.outerContainer}>
+        <TouchableOpacity>
+          <Shadow
+            distance={6}
+            startColor={'#FFFFFF'}
+            finalColor={'#FFFFFF00'}
+            offset={[-3, -3]}
+            paintInside={true}
+            sides={{top: true, left: true, bottom: true, right: true}}
+            corners={{
+              topStart: true,
+              topEnd: true,
+              bottomStart: true,
+              bottomEnd: true,
+            }}
+            style={{width: hScale(939), height: vScale(184)}}>
+            <Shadow
+              distance={6}
+              startColor={'#00A676'}
+              finalColor={'#00A87A00'}
+              offset={[5.5, 6]}
+              paintInside={true}
+              sides={{top: true, left: true, bottom: true, right: true}}
+              corners={{
+                topStart: true,
+                topEnd: true,
+                bottomStart: true,
+                bottomEnd: true,
+              }}>
+              <View style={styles.button}>
+                <Text style={styles.text}>{title}</Text>
               </View>
-            )}
-            <Text style={styles.text}>{title}</Text>
-          </TouchableOpacity>
-        </LinearGradient>
+            </Shadow>
+          </Shadow>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -86,36 +68,28 @@ export const WhiteGreenButton = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  //for android
-  buttonWrapper: {
-    overflow: 'hidden',
-  },
-  buttonBase: {
-    width: hScale(939),
-    height: vScale(184),
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    borderRadius: vScale(50),
-  },
-  button: {
-    width: '100%',
-    height: '100%',
-    paddingHorizontal: hScale(37),
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-  },
-  shadowBackground: {
     shadowColor: '#00A676',
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 0.9,
-    shadowRadius: 20,
+    shadowRadius: 10,
     elevation: 10,
+  },
+
+  outerContainer: {
+    borderRadius: vScale(50),
+    overflow: 'hidden',
+    alignItems: 'center',
+  },
+  button: {
+    width: hScale(922),
+    height: vScale(165),
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    borderRadius: vScale(40),
+    paddingTop: vScale(19),
+    paddingHorizontal: hScale(57),
   },
   text: {
     ...gStyle.sText,

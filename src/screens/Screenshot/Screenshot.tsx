@@ -1,4 +1,5 @@
 import {
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,7 +10,6 @@ import {
 import {ScreenshotProps} from '../../types';
 import {hScale, vScale} from '../../baseSize.ts';
 import {CopuIcon, GoBack, PlusIcon} from '../../assests';
-import LinearGradient from 'react-native-linear-gradient';
 import {gStyle} from '../../styles';
 import {
   ScreenshotCard,
@@ -17,6 +17,7 @@ import {
   WhiteGreenButton,
   WrapperComponentPink,
 } from '../../components';
+import {Shadow} from 'react-native-shadow-2';
 
 export const Screenshot = ({navigation}: ScreenshotProps) => {
   const handlePickImage = () => {
@@ -43,36 +44,70 @@ export const Screenshot = ({navigation}: ScreenshotProps) => {
 
           <ScreenshotCard title={"User's screenshot"} />
           <Text style={styles.clickText}>Tap to copy rizz</Text>
-
-          <View style={styles.outerContainer}>
-            <LinearGradient
-              colors={['#FFFFFF', '#E0E0E0']}
-              style={styles.gradientContainer}
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 1}}
-              locations={[0, 0.2, 1]}>
-              <View style={styles.innerContainer}>
-                <Text style={styles.text}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  quis est ut dui faucibus dapibus nec vel erat.
-                </Text>
-                <View style={styles.wrapperCopy}>
-                  <CopuIcon />
-                  <Text style={styles.copy}>copy</Text>
-                </View>
+          <View style={styles.wrapper}>
+            <View style={styles.containerCopy}>
+              {Platform.OS === 'android' && (
+                <Shadow
+                  distance={25}
+                  startColor={'rgba(255,255,255,0.31)'}
+                  endColor={'#FFFFFF00'}
+                  paintInside={false}
+                  style={{
+                    width: hScale(939),
+                    height: vScale(641),
+                    borderRadius: vScale(50),
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                  }}
+                />
+              )}
+              <View style={styles.outerContainer}>
+                <Shadow
+                  distance={10}
+                  startColor={'#FFFFFF'}
+                  finalColor={'#FFFFFF00'}
+                  offset={[0, 0]}
+                  paintInside={true}
+                  sides={{top: true, left: true, bottom: true, right: true}}
+                  corners={{
+                    topStart: true,
+                    topEnd: true,
+                    bottomStart: true,
+                    bottomEnd: true,
+                  }}>
+                  <Shadow
+                    distance={6}
+                    startColor={'#E0E0E0'}
+                    finalColor={'#E0E0E000'}
+                    offset={[5.5, 6]}
+                    paintInside={true}
+                    sides={{top: true, left: true, bottom: true, right: true}}
+                    corners={{
+                      topStart: true,
+                      topEnd: true,
+                      bottomStart: true,
+                      bottomEnd: true,
+                    }}
+                    style={{
+                      borderRadius: vScale(50),
+                    }}>
+                    <View style={styles.innerContainer}>
+                      <Text style={styles.text}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Fusce quis est ut dui faucibus dapibus nec vel erat.
+                      </Text>
+                      <View style={styles.wrapperCopy}>
+                        <CopuIcon />
+                        <Text style={styles.copy}>copy</Text>
+                      </View>
+                    </View>
+                  </Shadow>
+                </Shadow>
               </View>
-            </LinearGradient>
+            </View>
           </View>
-          <WhiteGreenButton
-            handlePress={() => {}}
-            title={'Generate more'}
-            isShadow={true}
-            stylePros={{
-              borderRadius: vScale(50),
-              width: hScale(939),
-              height: vScale(184),
-            }}
-          />
+          <WhiteGreenButton title={'Generate more'} />
         </View>
       </ScrollView>
     </WrapperComponentPink>
@@ -102,20 +137,27 @@ const styles = StyleSheet.create({
     height: vScale(111),
     width: hScale(111),
   },
+  wrapper: {
+    paddingBottom: vScale(100),
+  },
+  containerCopy: {
+    justifyContent: 'center',
+    shadowColor: '#FFFFFF',
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.9,
+    shadowRadius: 20,
+    elevation: 10,
+  },
 
   outerContainer: {
     width: hScale(939),
-    paddingBottom: vScale(100),
-    shadowColor: '#FFFFFF',
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    height: vScale(641),
+    borderRadius: vScale(50),
     elevation: 10,
+    overflow: 'hidden',
+    alignItems: 'center',
   },
-  gradientContainer: {
-    flex: 1,
-    borderRadius: 18,
-  },
+
   innerContainer: {
     flex: 1,
     backgroundColor: 'transparent',

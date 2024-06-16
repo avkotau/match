@@ -1,12 +1,15 @@
 import {
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
+  View,
   ViewStyle,
 } from 'react-native';
 import {gStyle} from '../../styles';
 import {vScale} from '../../baseSize.ts';
+import {Shadow} from 'react-native-shadow-2';
 
 type Props = {
   title: string;
@@ -21,7 +24,15 @@ export const UnlockButton = ({
   handlePress,
   stylePros,
 }: Props) => {
-  return (
+  const androidShadow = {
+    distance: 25,
+    startColor: '#00A67650',
+    endColor: '#00A67600',
+    paintInside: false,
+    corners: {topStart: true, topEnd: true, bottomStart: true, bottomEnd: true},
+  };
+
+  const buttonComponent = (
     <TouchableOpacity
       style={[styles.button, isShadow && styles.shadowBackground, stylePros]}
       activeOpacity={0.8}
@@ -29,16 +40,27 @@ export const UnlockButton = ({
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
+
+  return (
+    <View style={styles.container}>
+      {Platform.OS === 'android' && isShadow ? (
+        <Shadow {...androidShadow}>{buttonComponent}</Shadow>
+      ) : (
+        buttonComponent
+      )}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   button: {
-    paddingVertical: 15,
-    paddingHorizontal: 35,
     borderRadius: 30,
     elevation: 3,
     width: '100%',
-    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
   },

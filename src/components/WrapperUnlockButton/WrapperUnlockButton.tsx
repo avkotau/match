@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-import {vScale} from '../../baseSize.ts';
+import {isGreaterThan5Point5Inch, vScale} from '../../baseSize.ts';
 import {ReactNode} from 'react';
 import {gStyle} from '../../styles';
 
@@ -27,7 +27,7 @@ export const WrapperUnlockButton = ({children}: Props) => {
               backgroundColor: 'transparent',
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: vScale(30),
+              marginTop: isGreaterThan5Point5Inch ? vScale(30) : 0,
             }}>
             <Text
               style={{
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#00A676',
     borderRadius: 25,
-    padding: 20,
+    padding: vScale(59),
     alignItems: 'center',
     justifyContent: 'center',
     height: vScale(637),

@@ -1,6 +1,5 @@
 import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {hScale, vScale} from '../../baseSize.ts';
 
 type Props = {
   angle: number;
@@ -23,7 +22,7 @@ export const Card = ({angle, source, isCenter}: Props) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: '100%',
+    width: '33%',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
@@ -32,17 +31,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
-    marginHorizontal: -115,
+    marginHorizontal: -22,
   },
   centerCard: {
     marginTop: -26,
   },
   cardImage: {
-    width: hScale(348),
-    height: vScale(750),
+    width: '100%',
+    height: 'auto',
+    aspectRatio: 348 / 750,
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#FFFFFF',
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
 });
