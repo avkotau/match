@@ -1,7 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-import {isGreaterThan5Point5Inch, vScale} from '../../baseSize.ts';
+import {
+  isGreaterThan5Point5Inch,
+  isGreaterThan5PointFiveInch,
+  vScale,
+} from '../../baseSize.ts';
 import {ReactNode} from 'react';
 import {gStyle} from '../../styles';
 
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     marginTop: vScale(50),
     fontSize: 16,
-    paddingBottom: vScale(33.7),
+    paddingBottom: isGreaterThan5PointFiveInch ? vScale(33.7) : 0,
     ...gStyle.sText,
     color: '#FFFFFF',
     fontWeight: '300',

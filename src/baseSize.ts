@@ -16,3 +16,5 @@ const screenDiagonal =
 
 // Check if the diagonal is greater than 5.5 inches
 export const isGreaterThan5Point5Inch = screenDiagonal > 5.7;
+
+export const isGreaterThan5PointFiveInch = screenDiagonal > 5.5;
