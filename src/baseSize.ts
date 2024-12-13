@@ -18,3 +18,5 @@ const screenDiagonal =
 export const isGreaterThan5Point5Inch = screenDiagonal > 5.7;
 
 export const isGreaterThan5PointFiveInch = screenDiagonal > 5.5;
+
+

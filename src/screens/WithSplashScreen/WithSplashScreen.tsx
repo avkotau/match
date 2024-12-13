@@ -18,7 +18,7 @@ export const WithSplashScreen = ({children}: Props) => {
       duration: 3000,
       useNativeDriver: true,
     }).start(() => setIsAppReady(false));
-  }, []);
+  }, [fadeAnim]);
 
   return (
     <>

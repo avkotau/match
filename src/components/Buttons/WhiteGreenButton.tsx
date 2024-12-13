@@ -31,10 +31,10 @@ export const WhiteGreenButton = ({title}: Props) => {
           <Shadow
             distance={6}
             startColor={'#FFFFFF'}
-            finalColor={'#FFFFFF00'}
+            endColor={'#FFFFFF00'}
             offset={[-3, -3]}
             paintInside={true}
-            sides={{top: true, left: true, bottom: true, right: true}}
+            sides={{top: true, start: true, bottom: true, end: true}}
             corners={{
               topStart: true,
               topEnd: true,
@@ -45,10 +45,10 @@ export const WhiteGreenButton = ({title}: Props) => {
             <Shadow
               distance={6}
               startColor={'#00A676'}
-              finalColor={'#00A87A00'}
+              endColor={'#00A87A00'}
               offset={[5.5, 6]}
               paintInside={true}
-              sides={{top: true, left: true, bottom: true, right: true}}
+              sides={{top: true, start: true, bottom: true, end: true}}
               corners={{
                 topStart: true,
                 topEnd: true,

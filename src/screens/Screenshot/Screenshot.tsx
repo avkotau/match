@@ -66,10 +66,10 @@ export const Screenshot = ({navigation}: ScreenshotProps) => {
                 <Shadow
                   distance={10}
                   startColor={'#FFFFFF'}
-                  finalColor={'#FFFFFF00'}
+                  endColor={'#FFFFFF00'}
                   offset={[0, 0]}
                   paintInside={true}
-                  sides={{top: true, left: true, bottom: true, right: true}}
+                  sides={{top: true, start: true, bottom: true, end: true}}
                   corners={{
                     topStart: true,
                     topEnd: true,
@@ -79,10 +79,10 @@ export const Screenshot = ({navigation}: ScreenshotProps) => {
                   <Shadow
                     distance={6}
                     startColor={'#E0E0E0'}
-                    finalColor={'#E0E0E000'}
+                    endColor={'#E0E0E000'}
                     offset={[5.5, 6]}
                     paintInside={true}
-                    sides={{top: true, left: true, bottom: true, right: true}}
+                    sides={{top: true, start: true, bottom: true, end: true}}
                     corners={{
                       topStart: true,
                       topEnd: true,
